@@ -23,7 +23,7 @@ function getSiteKey(site, _spreadsheetID){
 		var entries = data.feed.entry;
 
 		for (var i = entries.length - 1; i >= 0; i--) {
-			console.log(entries[i]);
+			//console.log(entries[i]);
 			if(entries[i].gsx$site == site){
 				key = entries[i].gsx$code;
 			}
