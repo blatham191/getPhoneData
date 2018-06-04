@@ -14,21 +14,3 @@ function getPhoneData(_spreadsheetID, _worksheet, headers, tableID){
 		
 	})
 }
-
-function getSiteKey(site, _spreadsheetID){
-	var key ="";
-	var url = "https://spreadsheets.google.com/feeds/list/"+ _spreadsheetID +"/ovlwpr6/public/values?alt=json"
-
-	$.getJSON(url, function(data){
-		var entries = data.feed.entry;
-
-		for (var i = entries.length - 1; i >= 0; i--) {
-			//console.log(entries[i]);
-			if(entries[i].gsx$site == site){
-				key = entries[i].gsx$code;
-			}
-		}
-
-	})
-	return key;	
-}
