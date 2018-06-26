@@ -1,3 +1,29 @@
+function getHeaders(_spreadsheetID, _worksheet, tableID){
+
+	var url = "https://spreadsheets.google.com/feeds/cells/"+ _spreadsheetID +"/"+ _worksheet+ "/public/values?alt=json"
+
+	var headings = [];
+
+	$.getJSON(url, function(data){
+		var entries = data.feed.entry;
+		var data = entries[0].content.$t.split(/,|:/);
+		var j = 1;
+
+		for (var i=0; i<entries.length; i++){
+		  if(entries[i].title.$t != "A2"){
+		  	headings.push(entries[i].content.$t)
+		  }
+		  else if(entries[i].title.$t == "A2"){
+		  	break;
+		  }
+		}
+		
+	})
+
+	return headings;
+}
+
+
 function getPhoneData(_spreadsheetID, _worksheet, headers, tableID){
 
 	var url = "https://spreadsheets.google.com/feeds/list/"+ _spreadsheetID +"/"+ _worksheet+ "/public/values?alt=json"
