@@ -1,0 +1,78 @@
+#input {
+      background-position: 10px 12px; /* Position the search icon */
+      background-repeat: no-repeat; /* Do not repeat the icon image */
+      height: 40px;
+      width: 100%; /* Full-width */
+      font-size: 16px; /* Increase font-size */
+      padding: 12px 20px 12px 20px; /* Add some padding */
+      border: 1px solid #ddd; /* Add a grey border */
+      margin-bottom: 12px; /* Add some space below the input */
+  }
+.search { position: relative; }
+.search input { text-indent: 30px;}
+.search .fa-search { 
+  position: absolute;
+  top: 9px;
+  left: 15px;
+  font-size: 21px;
+}
+
+table { 
+  width: 100%; 
+  border-collapse: collapse; 
+}
+/* Zebra striping */
+tr:nth-of-type(even) { 
+  background: rgb(219, 219, 219); 
+}
+
+.table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 4px;
+  text-align: left;
+  background-color: #d14836;
+  color: white;
+}
+
+@media screen and (max-device-width:760px)
+{
+
+  /* Force table to not be like tables anymore */
+  table, thead, tbody, th, td, tr { 
+    display: block; 
+  }
+
+  thead tr { 
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tr { border: 1px solid #ccc; }
+
+  td { 
+    /* Behave  like a 'row' */
+    border: none;
+    border-bottom: 1px solid #eee; 
+    position: relative;
+    padding-left: 50%; 
+  }
+
+  td:before { 
+    /* Now like a table header */
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%; 
+    padding-right: 10px; 
+    white-space: nowrap;
+  }
+
+
+  td:nth-of-type(1):before { content: 'Name'; }
+  td:nth-of-type(2):before { content: 'Job Title'; }
+  td:nth-of-type(3):before { content: 'Email'; }
+  td:nth-of-type(4):before { content: 'Desk Phone'; }
+  td:nth-of-type(5):before { content: 'Mobile Phone'; }
+}
